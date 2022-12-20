@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Test;
 use App\Http\Controllers\AdminController;
-
+use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,14 +18,13 @@ use Illuminate\Support\Facades\Route;
 
 //exemplos de rotas que devemos usar
 
-    Route::get('/', [Test::class, 'HomeScreen']);
+    Route::get('/', [TestController::class, 'HomeScreen']);
 
+    Route::get('/view', [TestController::class, 'home']);
 
-    Route::get('/view', [Test::class, 'home']);
+    Route::get('/login', [TestController::class, 'login']);
 
-    Route::get('/login', [Test::class, 'login']);
-
-    Route::get('/register', [Test::class, 'register']);
+    Route::get('/register', [TestController::class, 'register']);
 
     //aqui são rotas especificas para ficheiro do admin de forma a conseguir manipular a base de dados 
 

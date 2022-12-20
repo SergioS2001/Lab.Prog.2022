@@ -91,9 +91,11 @@ span.psw {
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <!-- Como clica-se no logo para voltar ao main nao precisamos deste butao que volta para o home
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
+        -->
         <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
         </li>
@@ -108,25 +110,23 @@ span.psw {
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
         </li>
+        <!-- Nao usar para ja enquanto nao souber ao certo o que e
         <li class="nav-item">
           <a class="nav-link disabled">Disabled</a>
         </li>
-      </ul>
-      <form class="d-flex" role="search">
-        <!--
-        <button class="btn btn-outline-success" type="submit" href="http://localhost:8000/login">Log In</button>
-        <button class="btn btn-outline-success" type="submit" href="http://localhost:8000/register">Register</button>
         -->
-        
-        <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="http://localhost:8000/login">Log In</a>
-        </li>
-        
-        <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="http://localhost:8000/register">Register</a>
+      </ul>
+      <form class="d-flex" role="search"> 
+    
+        <li class="nav-item list-unstyled">
+        <a class="nav-link" aria-current="page" href="http://localhost:8000/login">Log In</a>
         </li>
 
-      </form>
+        <li class="nav-item list-unstyled">
+        <a class="nav-link" aria-current="page" href="http://localhost:8000/register">Register</a>
+        </li>
+
+     </form> 
     </div>
   </div>
 </nav>

@@ -14,7 +14,11 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        /**
+         * criar uma vista por exemplo com a navbar
+         * a dizer que é admin
+        */
+        return view('admin.homescreen');
     }
 
     /**
@@ -46,7 +50,9 @@ class AdminController extends Controller
      */
     public function show(Admin $admin)
     {
-        //
+        /**
+         * uma view que mostre o artigo em especifico que queremos procurar
+         */
     }
 
     /**
@@ -57,7 +63,11 @@ class AdminController extends Controller
      */
     public function edit(Admin $admin)
     {
-        //
+        /**
+         * dentro da view do artigo que queremos procurar
+         * conseguir editar a info dele como
+         * image, nome, descricao, preco
+         */
     }
 
     /**
@@ -69,7 +79,10 @@ class AdminController extends Controller
      */
     public function update(Request $request, Admin $admin)
     {
-        //
+        /**
+         * possivelmente um popup a mostrar que foi ajustado
+         * usar o mailtrap
+         */
     }
 
     /**
@@ -80,6 +93,8 @@ class AdminController extends Controller
      */
     public function destroy(Admin $admin)
     {
-        //
+        /** da mesma forma que o update
+         * mostrar um pop up e um email a dizer que foi destruido
+         */
     }
 }

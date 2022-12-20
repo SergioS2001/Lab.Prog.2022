@@ -6,17 +6,17 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class TestController extends Controller
 {
-    public function Welcome(){
-        return view('Welcome');
+    public function HomeScreen(){
+        return view('home.homescreen');
 
     }
-    public function Registo(){
-        return view('Registo');
+    public function register(){
+        return view('home.register');
 
     }
-    public function LogI(){
+    public function login(){
 
-        return view("logI");
+        return view("home.login");
 
     }
     public function Main(){

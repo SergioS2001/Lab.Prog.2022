@@ -36,8 +36,8 @@ class UtilizadorController extends Controller
     public function index()
     {
 
-        $Utilizador = Utilizador::paginate(5);
-        return view('Utilizador/Index', ['utilizador' => $Utilizador]);
+        $User = Utilizador::paginate(5);
+        return view('User.index', ['user' => $User]);
     }
 
     /**
@@ -48,7 +48,7 @@ class UtilizadorController extends Controller
     public function create()
     {
 
-        return view('Utilizador/create');
+        return view('User.create');
     }
 
     /**
@@ -170,7 +170,7 @@ return redirect()->back()->withErrors('Email doesnt exist or password doesnt mat
      */
     public function edit(Utilizador $utilizador)
     {
-        return view('Utilizador.edit', ['utilizador' => $utilizador]);
+        return view('User.edit', ['utilizador' => $utilizador]);
     }
 
     /**
