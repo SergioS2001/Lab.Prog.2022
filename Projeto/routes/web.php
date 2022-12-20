@@ -16,35 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//estas funções iniciais são apenas para estudo e teste
-
-
-    Route::get('/', function () {
-    // return view('welcome');
-    print "Heelo World\n";
-    });
-
-
-    //teste de rota
-    Route::get('/Test1', function () {
-        // return view('welcome');
-        print "Test1\n";
-        });
-
-    //teste 2
-    Route::get('/baba', function () {
-        // return view('welcome');
-        print "baba\n";
-        });
-        
-         //teste mas mais avançado
-      //forma mais correta de aplicar   
- //   Route::get('/test_advanced', [Test::class, 'test_advanced']);
-   
-   // Route::get('/test_view', [Test::class, 'test_view']);
-
-
 //exemplos de rotas que devemos usar
+
+    Route::get('/', [Test::class, 'HomeScreen']);
+
 
     Route::get('/view', [Test::class, 'home']);
 
@@ -60,14 +35,7 @@ use Illuminate\Support\Facades\Route;
     Route::get('/Admin/Remove/{user}', [AdminController::class, 'destroy']);
 
 
-    //aqui ficamos com a rota para a home page depois de ser feito o log in do user
-Route::get(
-    '/Main',
-    function () {
-        return view('Main');
-    }
-);
-
+?>
 
 
 
