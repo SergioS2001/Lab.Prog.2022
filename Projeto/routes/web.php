@@ -2,8 +2,13 @@
 
 use App\Http\Controllers\Test;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\HomeController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,25 +23,41 @@ use Illuminate\Support\Facades\Route;
 
 //exemplos de rotas que devemos usar
 
-    Route::get('/', [TestController::class, 'HomeScreen']);
+    Route::get('/teste', [TestController::class, 'HomeScreen']);
 
-    Route::get('/view', [TestController::class, 'home']);
+  //    Route::get('/', [HomeController::class, 'index']);
 
-    Route::get('/login', [TestController::class, 'login']);
+  // estas rotas aqui para baixo não devemos ter de usar pois com o auth, irá fazer isto
+  // ajustar é os ficheiros com html e css da pasta auth e novos ficheiros de views
 
-    Route::get('/register', [TestController::class, 'register']);
+   // Route::get('/view', [TestController::class, 'home']);
+
+    Route::get('/loginteste', [TestController::class, 'login']);
+
+   // Route::get('/login', [LoginController::class, 'login']);
+
+    Route::get('/registerteste', [TestController::class, 'register']);
+
+ //  Route::get('/register', [RegisterController::class, 'register']);
+
 
     //aqui são rotas especificas para ficheiro do admin de forma a conseguir manipular a base de dados 
+/*
 
     Route::get('/Admin/Insert/{user}', [AdminController::class, 'create']);
     Route::get('/Admin/Edit/{user}', [AdminController::class, 'edit']);
     Route::get('/Admin/Update/{user}', [AdminController::class, 'update']);
     Route::get('/Admin/Remove/{user}', [AdminController::class, 'destroy']);
 
+*/ 
 
+    Auth::routes();
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    
 ?>
 
 
+   
 
 
 
@@ -45,3 +66,4 @@ use Illuminate\Support\Facades\Route;
 
 
         
+
