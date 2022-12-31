@@ -25,16 +25,12 @@ class AdminFactory extends Factory
     switch($t){
     case 0:
         return 'User';
-        break;
     case 1:
         return 'Member';
-        break;
     case 2:
         return 'Admin';
-        break;
     default:
         return 'User';
-        break;
     }
     
     

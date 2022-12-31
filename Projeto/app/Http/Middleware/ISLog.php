@@ -16,11 +16,11 @@ class ISLog
      */
     public function handle(Request $request, Closure $next)
     {
-        if(session()->has('utilizadors')){
+        if(session()->has('user')){
             return $next($request);
 
         }
-        return redirect('/Registo');
+        return redirect('/Register');
 
     }
 }

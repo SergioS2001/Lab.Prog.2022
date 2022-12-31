@@ -16,16 +16,12 @@ class ISADMIN
      */
     public function handle(Request $request, Closure $next)
     {
-        if(session()->has('utilizadors')){
-            $uti=session()->get('utilizadors');
-            if(strcmp($uti->Type, 'Admin')==0){
-
-                return $next($request);
+        if(session()->has('user')){     //verifica se esta feito o login
+            $user = session()->get('user');
+            if(strcmp($user->Type, 'Admin') == 0){  //tira o user que fez login e tem a sessao iniciada
+                return $next($request);                //se esse user for admin ele recebe o pedido
             }
-            return redirect()->back()->with('popup','Not Admin');
-
+            return redirect('home')->with('error', "You dont have admin acess!");       //senao for recebe uma mensagem a dizer que nao pode ver
         }
-        return redirect('/logI')->with('popup','Not Log In');
-
     }
 }
