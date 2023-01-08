@@ -21,6 +21,15 @@
 <title>
                        @yield('Title','Default Title')
      </title>
+
+
+      <!-- Styles -->
+      <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+          @livewireStyles
+      
+          <!-- Scripts -->
+          <script src="{{ asset('js/app.js') }}" defer></script>
+
 </head>
     <body>
     <!--Header of the page with page with links of the requisitos , dropbox to see names , the requisitos, and log out with the link of the materilize -->

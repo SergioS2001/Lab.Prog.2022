@@ -15,7 +15,9 @@ return new class extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->id();
+            $table->string('Name');
             $table->timestamps();
+            $table->boolean('is_admin')->default(0);
         });
     }
 

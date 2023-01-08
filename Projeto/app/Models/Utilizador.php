@@ -17,9 +17,6 @@ class Utilizador extends Model
         'Password',
         'Email_veril',
     ];
-    public function Requisitos()
-    {
-    	return $this->hasMany(Requisito::class);
-    }
+ 
 
 }

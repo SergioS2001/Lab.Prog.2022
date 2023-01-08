@@ -23,26 +23,38 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 */
 
 
-   Route::get('/', [HomeController::class, 'HomeScreen']);
 
- // Route::get('/', [MailController::class, 'sendMail']);
+  // Route::get('/', [HomeController::class, 'HomeScreen']);
+
+  Route::get('/', [HomeController::class, 'index']);
+
+//Route::resource('artigos', HomeController::class);
 
   
+  Route::get('/artigos', [HomeController::class,'index'])->name('artigos.index');
+  Route::get('/artigos/create', [HomeController::class,'create'])->name('artigos.create');
+  Route::post('/artigos', [HomeController::class,'store'])->name('artigos.store');
+  Route::get('/artigos/{artigos}', [HomeController::class,'show'])->name('artigos.show');
+  Route::get('/artigos/{artigos}/edit', [HomeController::class,'edit'])->name('artigos.edit');
+  Route::put('/artigos/{artigos}', [HomeController::class,'update'])->name('artigos.update');
+  Route::delete('/artigos/{artigos}', [HomeController::class,'destroy'])->name('artigos.destroy');
 
-  Auth::routes();
 
-
+//  Route::get('/', [MailController::class, 'sendMail']);
 
   //rota para ir para a main page do admin
-  Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('type'); //com este middleware, ele verifica se o user é do tipo certo para entrar nesta pagina
+  
+//  Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin'); //com este middleware, ele verifica se o user é do tipo certo para entrar nesta pagina
 
   Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+  Route::get('/home', [App\Http\Controllers\HomeController::class, 'homescreen'])->name('home');
 
-Route::prefix('admin')->group(function () {
-  Route::get('dashboard', [DashboardController::class, 'index']);
-});  
+  /*
+  Route::prefix('admin')->group(function () {
+  Route::get('dashboard', [App\HTTP\Controllers\Admin\DashboardController::class, 'index']);
+});*/
+
 
 ?>
 
