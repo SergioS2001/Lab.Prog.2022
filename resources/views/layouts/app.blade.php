@@ -62,7 +62,9 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a class="dropdown-item" href="#">My profile </a>
+                                    <a class="dropdown-item" href="#">
+                                        My profile 
+                                    </a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
@@ -87,7 +89,6 @@
     </div>
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}" defer> </script>
 </body>
 

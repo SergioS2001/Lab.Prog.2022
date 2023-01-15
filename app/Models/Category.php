@@ -12,7 +12,6 @@ class Category extends Model
     protected $table = 'categories';
     protected $fillable = [
         'name',
-        'slug',
         'description',
         'status',
         'popular',
@@ -21,4 +20,5 @@ class Category extends Model
         'meta_descrip',
         'meta_keywords',
     ];
+
 }

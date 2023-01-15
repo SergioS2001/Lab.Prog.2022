@@ -1,8 +1,11 @@
-@extends('layouts.admin') <!-- VERIFICAR SE OS NAMES DOS CONTAINERS ESTÃO CORRETOS -->
+@extends('layouts.admin')
 
-@section('container-fluid')
-<div class="card">
-    <div class="card-body">
-        <h1> Joana's code </h1>
+@section('content')
+    <div class="card">
+        <div class="card-body">
+            <h1>Inês Gomes</h1>
+        </div>
     </div>
-</div>
+
+
+@endsection

@@ -1,32 +1,35 @@
-<!-- RODAPÉ -->
-
-
-<footer class="footer py-12  "> <!-- Não consigo colocar o rodapé mais para baixo, de maneira a que fique no fundo da página -->
+<footer class="footer">
         <div class="container-fluid">
-          <div class="row align-items-center justify-content-lg-between">
-            <div class="col-lg-10 mb-lg- mb-1">
-              <div class="copyright text-center text-sm text-muted text-lg-start">
-                <script>
-                  document.write(new Date().getFullYear())
-                </script>,
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                <li class="nav-item">
-                  <a href="https://getbootstrap.com/" class="nav-link text-muted" target="_blank">Bootstrap ©</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted" target="_blank">About Us</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.facebook.com/" class="nav-link text-muted" target="_blank">Facebook</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.instagram.com/" class="nav-link pe-0 text-muted" target="_blank">Instagram</a>
-                </li>
-              </ul>
-            </div>
+          <nav class="float-left">
+            <ul>
+              <li>
+                <a href="https://www.creative-tim.com">
+                  Creative Tim
+                </a>
+              </li>
+              <li>
+                <a href="https://creative-tim.com/presentation">
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a href="http://blog.creative-tim.com">
+                  Blog
+                </a>
+              </li>
+              <li>
+                <a href="https://www.creative-tim.com/license">
+                  Licenses
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div class="copyright float-right">
+            &copy;
+            <script>
+              document.write(new Date().getFullYear())
+            </script>, made with <i class="material-icons">favorite</i> by
+            <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
           </div>
         </div>
       </footer>

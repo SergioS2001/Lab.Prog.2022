@@ -19,7 +19,15 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->tinyInteger('is_admin')->default('0');
+            $table->string('lname');
+            $table->string('phone');
+            $table->string('address1');
+            $table->string('address2');
+            $table->string('city');
+            $table->string('state');
+            $table->string('country');
+            $table->string('pincode');
+            $table->boolean('is_admin')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

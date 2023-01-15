@@ -1,12 +1,14 @@
 <?php
 
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\CartController;
-
+use App\Http\Controllers\Frontend\CheckoutController;
+use App\Http\Controllers\Frontend\FrontendController;
+use Symfony\Component\Translation\Dumper\PoFileDumper;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,39 +21,38 @@ use App\Http\Controllers\Frontend\CartController;
 |
 */
 
-//Route::get('/', function () { -> podemos comentar pois já damos as boas vindas nas views->frontend->index
-//    return view('welcome');
-//});
-
 Route::get('/', [FrontendController::class, 'index']);
 Route::get('category', [FrontendController::class, 'category']);
-Route::get('view-category/{slug}',[FrontendController::class,'viewcategory']);
-Route::get('category/{cate_slug}/{prod_slug}', [FrontendController::class, 'productview']);
+Route::get('category/{name}', [FrontendController::class, 'viewcategory']);
+Route::get('category/{cate_name}/{prod_name}', [FrontendController::class, 'productview']);
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('add-to-cart', [CartController::class, 'addProduct']);
+Route::post('delete-cart-item', [CartController::class, 'deleteProduct']);
+Route::post('update-cart', [CartController::class, 'updatecart']);
 
-
-Route::middleware(['auth'])->group(function(){
-    Route::post('add-to-cart',[CartController::class, 'addProduct']);
+Route::middleware(['auth'])->group(function () {
+    Route::get('cart', [CartController::class, 'viewcart']);
+    Route::get('checkout', [CheckoutController::class, 'index']);
+    Route::post('place-order', [CheckoutController::class, 'placeorder']);
 });
 
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::middleware(['auth', 'is_admin'])->group(function () {
-    Route::get('/dashboard', 'Admin\FrontendController@index');
-
-    Route::get('categories', 'Admin\CategoryController@index'); /* "Target class [Admin\FrontendController] does not exist." -> 
-                                                                    perceber de onde vem o erro para colocar as categorias a funcionar
-                                                                    aka artigos (estarão divididos por categorias) */
-    Route::get('add-category', 'Admin\CategoryController@add');
-    Route::post('insert-category', 'Admin\CategoryController@insert');
+Route::middleware(['auth', 'isAdmin'])->group(function () {
+    Route::get('/dashboard', 'App\Http\Controllers\Admin\FrontendController@index');
+    
+    Route::get('categories', 'App\Http\Controllers\Admin\CategoryController@index');
+    Route::get('add-category', 'App\Http\Controllers\Admin\CategoryController@add');
+    Route::post('insert-category', 'App\Http\Controllers\Admin\CategoryController@insert');
     Route::get('edit-category/{id}', [CategoryController::class, 'edit']);
-    Route::put('update-category/{id}', [CategoryController::class, 'update']);
+    Route::put('update-category/{id}',[CategoryController::class, 'update']);
     Route::get('delete-category/{id}', [CategoryController::class, 'destroy']);
 
-    Route::get('products', [ProductController::class, 'index']);
-    Route::get('add-products', [ProductController::class, 'add']);
+
+    Route::get('products', [ProductController::class, 'index']);   
+    Route::get('add-products', [ProductController::class, 'add']);   
     Route::post('insert-product', [ProductController::class, 'insert']);
     Route::get('edit-product/{id}', [ProductController::class, 'edit']);
     Route::put('update-product/{id}', [ProductController::class, 'update']);

@@ -1,39 +1,45 @@
-@extends('layouts.admin') <!-- VERIFICAR SE OS NAMES DOS CONTAINERS ESTÃO CORRETOS -->
+@extends('layouts.admin')
 
-@section('container-fluid')
-<div class="card">
-    <div class="card-header">
-        <h4> Product Page</h4>
-        <hr>
-    </div>
-    <div class="card-body">
-        <table class="table table-bordered table-striped">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Category</th>
-                    <th>Name</th>
-                    <th>Selling Price</th>
-                    <th>Image</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
+@section('content')
+    <div class="card">
+        <div class="card-header">
+            <h4>Poducts Page</h4>
+            <hr>
+        </div>
+
+        <div class="card-body">
+            @csrf
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Category</th>
+                        <th>Name</th>
+                        <th>Selling Price</th>
+                        <th>Image</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+            
+                <body>
                 @foreach($products as $item)
-                <tr>
-                    <td>{{ $item->id }}</td>
-                    <td>{{ $item->category->name }}</td>
-                    <td>{{ $item->name }}</td>
-                    <td>{{ $item->selling_price }}</td>
-                    <td>
-                        <img src="{{ asset('assets/uploads/products/'.$item->image) }}" class="cate-image" alt="Image Here">
-                    </td>
-                    <td>
-                        <a href="{{url('edit-product/'.$item->id)}}" class="btn btn-primary btn-sm">Edit</button>
-                            <a href="{{url('delete-product/'.$item->id)}}" class="btn btn-danger btn-sm">Delete</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                    <tr>
+                        <td>{{$item->id}}</td>
+                        <td>{{$item->category->name}}</td>
+                        <td>{{$item->name}}</td>
+                        <td>{{$item->selling_price}}</td>
+                        <td>
+                            <img src="{{ asset('assets/uploads/product/'. $item->image) }}" class="cate-image" alt="Image Here">
+                        </td>
+                        <td>
+                            <a href="{{ url('edit-product/'.$item->id) }}" class="btn btn-primary btn-sm">Edit</a>
+                            <a href="{{ url('delete-product/'.$item->id) }}" class="btn btn-danger btn-sm">Delete</a>
+                        </td>
+                    </tr>
+                @endforeach
+                </body>
+            </table>
+        </div>
     </div>
-</div>
+
+@endsection

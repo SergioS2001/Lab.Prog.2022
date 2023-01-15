@@ -12,7 +12,6 @@ class Product extends Model
     protected $fillable = [
         'cate_id',
         'name',
-        'slug',
         'small_description',
         'description',
         'original_price',
@@ -23,7 +22,7 @@ class Product extends Model
         'trending',
         'meta_title',
         'meta_keywords',
-        'meta_description',
+        'meta_desciption',
     ];
 
     public function category()

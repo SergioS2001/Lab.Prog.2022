@@ -6,13 +6,13 @@
     </div>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="{{asset('assets/images/slider.jpg')}}" class="d-block w-100" alt="...">
+            <img src="{{ asset('assets/images/store.jpg') }}" class="d-block w-50" alt="...">
         </div>
         <div class="carousel-item">
-            <img src="{{asset('assets/images/slider.jpg')}}" class="d-block w-100" alt="...">
+            <img src="{{ asset('assets/images/store2.jpg') }}" class="d-100 w-50" alt="...">
         </div>
         <div class="carousel-item">
-            <img src="{{asset('assets/images/slider.jpg')}}" class="d-block w-100" alt="...">
+            <img src="{{ asset('assets/images/store3.jpg') }}" class="d-100 w-50" alt="...">
         </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -22,5 +22,5 @@
     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
-    </button>
+  </button>
 </div>

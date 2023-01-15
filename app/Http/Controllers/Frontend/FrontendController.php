@@ -11,42 +11,46 @@ class FrontendController extends Controller
 {
     public function index()
     {
-        $feature_products = Product::where('trending', '1')->take(15)->get();
+        $featured_products = Product::where('trending', '1')->take(15)->get();
         $trending_category = Category::where('popular', '1')->take(15)->get();
-        return view('frontend.index', compact('feature_products', 'trending_category'));
+        return view('frontend.index', compact('featured_products', 'trending_category'));
     }
 
     public function category()
     {
         $category = Category::where('status', '0')->get();
-        return view('frontend.category', compact('category'));
+        return view('frontend.category', compact('category')); 
     }
 
-    public function viewcategory($slug)
+    public function viewcategory($name)
     {
-        if (Category::where('slug', $slug)->exist) {
-            $category = Category::where('slug', $slug)->first();
+       if(Category::where('name',$name)->exists())
+       {
+            $category = Category::where('name', $name)->first();
             $products = Product::where('cate_id', $category->id)->where('status', '0')->get();
             return view('frontend.products.index', compact('category', 'products'));
-        } else {
-            return redirect('/')->with('status', "Slug does not exist");
-        }
+       }
+       else{
+            return redirect('/')->with('status', "Name does not exists");
+       }
+
     }
 
-    public function productview($cate_slug, $prod_slug)
+    public function productview($cate_name, $prod_name)
     {
-        if (Category::where('slug', $cate_slug)->exist) {
-            if(Product::where('slug', 'prod_slug'))
-            {
-                $producs = Product::where('slug',$prod_slug)->first();
+        if(Category::where('name',$cate_name)->exists())
+        {
+             if(Product::where('name', $prod_name)->exists())
+             {
+                $products = Product::where('name', $prod_name)->first();
                 return view('frontend.products.view', compact('products'));
-            }
-            else{
-                return redirect('/')->with('status', "No such category found");
-            }
+             }
+             else{
+                return redirect('/')->with('status', "The link was broken");
+             }
         }
         else{
-            return redirect('/')->with('status',"No such category found");
+             return redirect('/')->with('status', "No such category found");
         }
     }
 }

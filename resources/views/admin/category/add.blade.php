@@ -1,22 +1,20 @@
-@extends('layouts.admin') <!-- VERIFICAR SE OS NAMES DOS CONTAINERS ESTÃO CORRETOS -->
+@extends('layouts.admin')
 
-@section('container-fluid')
-<div class="card">
-    <div class="card-header">
-        <h4>Add Category</h4>
-    </div>
-    <div class="card-body">
+@section('content')
+    <div class="card">
+
+        <div class="card-header">
+            <h4>Add Category</h4>
+        </div>
+
+        <div class="card-body">
         <form action="{{ url('insert-category') }}" method="POST" enctype="multipart/form-data">
-            @csrf
+           @csrf
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 mb-3">
                     <label for="">Name</label>
                     <input type="text" class="form-control" name="name">
-                </div>
-                <div class="col-md-6">
-                    <label for="">Slug</label>
-                    <input type="text" class="form-control" name="slug">
-                </div>
+                </div> 
                 <div class="col-md-12 mb-3">
                     <label for="">description</label>
                     <textarea name="description" rows="3" class="form-control"></textarea>
@@ -36,7 +34,7 @@
                 </div>
                 <div class="col-md-12 mb-6">
                     <label for="">Meta Keywords</label>
-                    <textarea class="form-control" name="keywords" rows="3"></textarea>
+                    <textarea class="form-control" name="meta_keywords" rows="3"></textarea>
                 </div>
                 <div class="col-md-12 mb-6">
                     <label for="">Meta Description</label>
@@ -51,5 +49,8 @@
             </div>
         </form>
     </div>
-</div>
+    </div>
+
+    
+
 @endsection
